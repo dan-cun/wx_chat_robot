@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+.smoke-venv/
+.media-venv/
+.media_data/
+
+# 离线依赖缓存（第三方 wheel，不纳入版本控制）
+libs/
+
+# 运行时生成的数据
+chat_contexts.json
+user_timers.json
+core_memory/
+CoreMemory/
+memory_temp/
+Memory_Temp/
+forum_data/npc_config.json
+# 「读聊天记录」生成的风格档案（内容来自本地聊天记录，不入库也不发包）
+HistoryProfiles/
+
+# 日志
+*.log
+COMMIT_MSG.txt
+
+# 临时发版正文草稿（不入库）
+release-*.md

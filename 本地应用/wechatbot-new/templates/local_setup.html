@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>微信 AI 助手 · 本地配置</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23087e6b'/%3E%3Cpath d='M9 22L23 8M12 8h11v11' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
+  <style>
+    :root{--bg:#f3f6f5;--card:#fff;--ink:#173b35;--muted:#697e79;--line:#e2eae7;--accent:#087e6b;--soft:#e5f4ef;--danger:#b7453c;--radius:18px}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.65 "Microsoft YaHei","PingFang SC",system-ui,sans-serif}button,input,textarea,select{font:inherit}button,a,input,textarea,select{outline-color:var(--accent)}a{color:var(--accent)}button{cursor:pointer;border:1px solid var(--line);border-radius:10px;padding:10px 17px;background:#fff;color:var(--ink);font-weight:600}button:hover{border-color:var(--accent)}button:disabled{cursor:not-allowed;opacity:.45}button.primary{background:var(--accent);border-color:var(--accent);color:#fff}button.danger{color:var(--danger)}h1,h2,h3,p{margin:0}h1{font-size:30px;letter-spacing:-1px;line-height:1.3}h2{font-size:19px}h3{font-size:15px}.layout{display:grid;grid-template-columns:244px minmax(0,1fr);min-height:100vh}aside{padding:36px 22px;background:#fff;border-right:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:11px;padding:0 10px 39px;font-size:16px;font-weight:700}.brand-icon{display:grid;place-items:center;width:37px;height:37px;background:var(--accent);color:white;border-radius:12px;font-size:22px}.brand small{display:block;font-size:10px;letter-spacing:2px;font-weight:500;color:var(--muted)}nav{display:grid;gap:8px}nav button{text-align:left;border:0;background:transparent;color:var(--muted);font-weight:500;padding:13px 15px}nav button.active{background:var(--soft);color:var(--accent);font-weight:700}nav .number{display:inline-block;width:29px;font-size:11px;opacity:.7}.side-footer{margin-top:auto;padding:22px 12px 0;font-size:12px;color:var(--muted)}.side-footer a{display:block;margin-top:9px;text-decoration:none}main{padding:42px 48px 64px;max-width:1300px;width:100%}.topline{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:30px}.eyebrow{font-size:11px;letter-spacing:2px;color:var(--accent);font-weight:700;margin-bottom:11px}.subtitle{color:var(--muted);margin-top:11px;max-width:650px}.stage{display:inline-flex;align-items:center;gap:8px;border:1px solid #cce2d9;border-radius:100px;padding:6px 12px;font-size:12px;background:#f5faf7;white-space:nowrap}.dot{width:7px;height:7px;background:#9aac9e;border-radius:50%}.stage.ok .dot{background:var(--accent)}.panel{display:none}.panel.active{display:block}.intro{margin-bottom:25px}.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:25px;margin-bottom:22px}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:21px}.muted{color:var(--muted)}.small{font-size:12px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.metric{padding:22px}.metric-label{color:var(--muted);font-size:12px;margin-bottom:12px}.metric-value{font-size:21px;font-weight:700;word-break:break-word}.metric-note{color:var(--muted);font-size:12px;margin-top:7px}.notice{background:#edf5f1;border:1px solid #d8e9e1;border-radius:12px;padding:15px 18px;color:#42685c;margin:18px 0}.step{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:15px;align-items:center;padding:18px 0;border-top:1px solid var(--line)}.step:first-of-type{border-top:0}.step-icon{display:grid;place-items:center;background:var(--soft);border-radius:10px;width:32px;height:32px;color:var(--accent);font-size:12px;font-weight:700}.pill{font-size:11px;border-radius:100px;padding:4px 10px;background:#f2f5f3;color:var(--muted)}.pill.ok{background:var(--soft);color:var(--accent)}.fields{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field.full{grid-column:1/-1}label{font-size:13px;font-weight:600}input,textarea,select{width:100%;border:1px solid #d8e2dd;border-radius:10px;background:#fcfdfc;color:var(--ink);padding:11px 12px}textarea{resize:vertical;line-height:1.75;min-height:140px}input::placeholder,textarea::placeholder{color:#95a59f}.hint{color:var(--muted);font-size:12px}.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:21px}.checkbox{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:400}.checkbox input{width:16px;height:16px;accent-color:var(--accent)}.personas{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.personas button{padding:7px 13px;font-size:12px}.personas button.selected{background:var(--soft);border-color:#b1d8c9;color:var(--accent)}.listener{display:grid;grid-template-columns:minmax(120px,1.1fr) minmax(120px,1fr) auto;gap:12px;padding:15px 0;border-top:1px solid var(--line);align-items:center}.empty{padding:28px 15px;text-align:center;border:1px dashed #cfddd5;border-radius:12px;color:var(--muted)}.statusline{font-size:12px;color:var(--muted);white-space:pre-wrap;overflow-wrap:anywhere}.toast{position:fixed;bottom:25px;right:28px;max-width:min(520px,calc(100vw - 40px));background:#173b35;color:#fff;border-radius:12px;padding:14px 20px;box-shadow:0 8px 30px #143c3520;z-index:9;display:none;white-space:pre-wrap}.toast.error{background:#8c3c35}.version{border-top:1px solid var(--line);padding-top:16px;margin-top:17px;font-size:12px;color:var(--muted)}.busy{opacity:.65;pointer-events:none}.runtime{display:flex;align-items:center;gap:10px}.divider{border:0;border-top:1px solid var(--line);margin:22px 0}.save-note{color:var(--muted);font-size:12px}code{background:#eff4f1;padding:2px 5px;border-radius:4px}#loading-note{padding:11px 0;color:var(--muted)}
+    .pill.error,.stage.error{background:#fff0ed;color:var(--danger);border-color:#efd0ca}.stage.error .dot{background:var(--danger)}.runtime-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0}.runtime-box{background:#f6f9f7;border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}.runtime-box h3{font-size:13px;color:var(--muted);margin-bottom:9px}.runtime-value{font-size:22px;font-weight:700;letter-spacing:-.5px}.runtime-box p{font-size:11px;color:var(--muted);margin-top:7px;overflow-wrap:anywhere}.runtime-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px}.runtime-meta>div{border-top:1px solid var(--line);padding-top:13px;min-width:0}.runtime-meta h3{font-size:12px;margin-bottom:5px}.runtime-meta p{font-size:12px;color:var(--muted);overflow-wrap:anywhere}.runtime-error-note{margin-top:9px;color:var(--danger)!important}.poll-note{margin-top:15px;font-size:11px;color:var(--muted)}
+    .vision-flow{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:18px 0 25px;color:var(--muted);font-size:12px}.vision-flow span{padding:7px 10px;border:1px solid var(--line);border-radius:9px;background:white;color:var(--ink)}.vision-upload{display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:22px;align-items:start}.vision-preview-box{min-height:180px;border:1px dashed #c7dcd3;border-radius:12px;background:#f6faf8;display:flex;align-items:center;justify-content:center;padding:12px;overflow:hidden}.vision-preview-box img{display:block;width:100%;height:160px;object-fit:contain;border-radius:7px}.vision-preview-box img[hidden]{display:none}.vision-results{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:22px}.vision-result{min-width:0;border:1px solid var(--line);border-radius:12px;padding:17px;background:#fcfdfc}.vision-result h3{margin-bottom:8px}.vision-result .statusline{min-height:64px;padding-bottom:13px;border-bottom:1px solid var(--line)}.vision-output{min-height:140px;max-height:420px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;margin-top:14px}.vision-file-note{min-height:21px}.vision-disabled-note{font-size:12px;color:var(--muted);margin-top:12px}input:disabled,select:disabled{background:#f0f4f2;color:#7c8d86}#vision-question{min-height:95px}
+    @media(max-width:1050px){main{padding:30px 26px}.layout{grid-template-columns:207px minmax(0,1fr)}.grid{gap:10px}.metric{padding:18px}.metric-value{font-size:18px}.runtime-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vision-upload{grid-template-columns:1fr}.vision-preview-box{max-width:320px}}
+    @media(max-width:760px){.layout{display:block}aside{position:static;height:auto;padding:20px;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:0 0 17px}nav{display:flex;gap:4px;overflow:auto}nav button{white-space:nowrap;padding:10px}.side-footer{display:none}main{padding:26px 18px 45px}h1{font-size:25px}.topline{align-items:flex-start}.stage{font-size:10px;padding:5px 8px}.grid,.fields{grid-template-columns:1fr}.card{padding:20px}.grid{gap:0}.metric{margin-bottom:12px}.listener{grid-template-columns:1fr auto}.listener select{grid-row:2;grid-column:1/-1}.step{grid-template-columns:30px minmax(0,1fr)}.step .pill{grid-column:2;justify-self:start}.card-head{gap:10px}.field.full{grid-column:auto}.runtime-meta{grid-template-columns:1fr}.runtime-box{padding:12px}.runtime-value{font-size:19px}}
+    @media(max-width:760px){.vision-results{grid-template-columns:1fr}.vision-flow{gap:6px}.vision-flow span{padding:5px 7px}.vision-output{min-height:110px}}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <div class="brand"><span class="brand-icon" aria-hidden="true">↗</span><div>微信 AI 助手<small>LOCAL WORKSPACE</small></div></div>
+      <nav aria-label="配置导航">
+        <button class="active" data-page="overview"><span class="number">01</span>概览</button>
+        <button data-page="persona"><span class="number">02</span>人物设定</button>
+        <button data-page="model"><span class="number">03</span>模型接口</button>
+        <button data-page="wechat"><span class="number">04</span>微信会话</button>
+        <button data-page="vision"><span class="number">05</span>图片理解</button>
+      </nav>
+      <div class="side-footer">本地配置工作台<br>模型就绪后，可在此接入。</div>
+    </aside>
+    <main>
+      <header class="topline"><div><div class="eyebrow">YOUR PERSONAL AI WORKSPACE</div><h1 id="page-title">让对话，有自己的风格。</h1></div><span id="header-status" class="stage"><span class="dot"></span><span>应用配置阶段</span></span></header>
+      <div id="loading-note" role="status">正在读取本地配置…</div>
+      <section id="overview" class="panel active" aria-label="概览">
+        <p class="subtitle intro">先设定人物，再连接模型，最后选择需要自动回复的微信会话。</p>
+        <div class="grid">
+          <div class="card metric"><div class="metric-label">当前阶段</div><div class="metric-value">应用配置阶段</div><div class="metric-note" id="phase-note">等待接入模型API</div></div>
+          <div class="card metric"><div class="metric-label">人物设定</div><div class="metric-value" id="persona-count">—</div><div class="metric-note">保存表达风格与对话规则</div></div>
+          <div class="card metric"><div class="metric-label">微信自动回复</div><div class="metric-value" id="bot-summary">待确认</div><div class="metric-note" id="listeners-summary">正在读取会话配置</div></div>
+        </div>
+        <div class="card"><div class="card-head"><div><h2>配置进度</h2><p class="muted small">保存配置后，按需执行真实接口验证。</p></div><button id="refresh-button">刷新状态</button></div>
+          <div class="step"><span class="step-icon">1</span><div><h3>定义人物风格</h3><p class="muted small">输入人物提示词，之后可以补充风格示例。</p></div><span class="pill" id="persona-progress">待确认</span></div>
+          <div class="step"><span class="step-icon">2</span><div><h3>连接模型API</h3><p class="muted small">配置兼容接口地址、模型名称与访问凭证。</p></div><span class="pill" id="api-progress">待确认</span></div>
+          <div class="step"><span class="step-icon">3</span><div><h3>选择微信会话</h3><p class="muted small">仅添加你希望机器人回复的好友或群聊。</p></div><span class="pill" id="wechat-progress">待确认</span></div>
+          <div class="notice">当前是应用配置页面。保存人物和会话不会启动机器人；完成接口验证后，仍需手动启动自动回复。</div>
+          <div class="version" id="versions">运行环境：待读取</div>
+        </div>
+      </section>
+      <section id="persona" class="panel" aria-label="人物设定">
+        <p class="subtitle intro">描述人物怎样表达、如何回应。此处保存提示词，不会训练或修改模型权重。</p>
+        <div class="card"><div class="card-head"><div><h2>人物与表达风格</h2><p class="muted small">选择已有设定编辑，或创建新设定。</p></div><button id="new-persona">新建人物</button></div>
+          <div class="personas" id="persona-list"></div>
+          <form id="persona-form"><div class="fields"><div class="field full"><label for="persona-name">人物设定名称</label><input id="persona-name" maxlength="100" required placeholder="为这个人物设定起一个名字"><span class="hint">修改名称会以新名称保存，已选会话仍需单独确认。</span></div><div class="field full"><label for="persona-content">人物提示词</label><textarea id="persona-content" rows="11" placeholder="描述表达习惯、句子长度、语气、标点和回复原则；可补充已脱敏的对话示例。"></textarea><span class="hint">接入模型后，提示词和选入的示例将随请求发送至该接口。</span></div></div><div class="actions"><button class="primary" type="submit">保存人物设定</button><span class="save-note">保存后可在微信会话中选择。</span></div></form>
+        </div>
+      </section>
+      <section id="model" class="panel" aria-label="模型接口">
+        <p class="subtitle intro">可先保存空配置，等训练模型的接口就绪后再连接。</p>
+        <div class="card"><div class="card-head"><div><h2>模型连接</h2><p class="muted small">填写兼容的聊天接口配置。</p></div><span class="pill" id="model-status">待确认</span></div>
+          <form id="model-form"><div class="fields">
+            <div class="field full"><label for="base-url">接口地址（Base URL）</label><input id="base-url" type="url" placeholder="例如 http://127.0.0.1:8000/v1"><span class="hint">填写服务提供的基础地址，不填写完整聊天请求路径。</span></div>
+            <div class="field full"><label for="model-name">模型名称</label><input id="model-name" placeholder="与模型服务中的名称保持一致"></div>
+            <div class="field full"><label for="api-key">API Key</label><input id="api-key" type="password" autocomplete="new-password" placeholder="留空保留已有凭证；填写新值则替换"><span id="key-state" class="hint">凭证状态：待读取</span></div>
+            <div class="field"><label class="checkbox"><input type="checkbox" id="no-auth">接口不需要API Key</label><span class="hint">仅在服务明确允许无认证访问时选择。</span></div>
+            <div class="field"><label class="checkbox"><input type="checkbox" id="clear-key">清除已保存的API Key</label><span class="hint">保存时移除现有凭证。</span></div>
+            <div class="field"><label for="temperature">温度</label><input id="temperature" type="number" min="0" max="2" step="0.05" value="0.7"></div>
+            <div class="field"><label for="max-tokens">回复Token上限</label><input id="max-tokens" type="number" min="1" step="1" value="512"></div>
+            <div class="field"><label for="history-turns">保留历史轮数</label><input id="history-turns" type="number" min="0" step="1" value="5"></div>
+          </div><div class="actions"><button class="primary" type="submit">保存接口配置</button><span class="save-note">保存不等于联网验证通过。</span></div></form>
+          <hr class="divider"><h3>真实接口验证</h3><p class="muted small">先保存配置。点击后将真实调用模型，可能产生服务费用。</p><div class="actions"><button id="check-model" disabled>真实调用模型验证</button></div><p id="validation-detail" class="statusline" aria-live="polite" style="margin-top:14px">尚未读取验证记录。</p>
+        </div>
+      </section>
+      <section id="wechat" class="panel" aria-label="微信会话">
+        <p class="subtitle intro">按微信中显示的名称添加会话，为每个会话选择人物设定。</p>
+        <div class="card"><div class="card-head"><div><h2>自动回复会话</h2><p class="muted small">不添加会话时，无法启动自动回复。</p></div><button id="add-listener">＋ 添加会话</button></div><form id="listeners-form"><div id="listener-rows"></div><div class="actions"><button class="primary" type="submit">保存会话配置</button></div></form></div>
+        <div class="card">
+          <div class="card-head"><div><h2>图片与语音</h2><p class="muted small">在自动回复会话中按需启用媒体处理。</p></div><span class="pill">停止后配置</span></div>
+          <form id="media-form">
+            <div class="fields">
+              <div class="field"><label class="checkbox"><input type="checkbox" id="image-enabled">启用图片理解</label><span class="hint">按“图片理解”页的视觉配置读取图片，再把文字描述交给聊天API生成回复。保存开关不会自动调用模型。</span></div>
+              <div class="field"><label class="checkbox"><input type="checkbox" id="voice-enabled">启用语音转文字</label><span class="hint">使用本机CPU运行 faster-whisper small / int8，再交给当前模型生成回复。首次加载及单条转写可能较慢。</span></div>
+            </div>
+            <div class="actions"><button class="primary" type="submit" id="media-save" disabled>保存媒体配置</button><span id="media-save-hint" class="save-note">需先停止机器人，再保存媒体配置。</span></div>
+          </form>
+          <div id="media-readiness" class="notice" role="status">正在读取本地转写资源状态。</div>
+          <p class="muted small">微信图片或语音尚未落盘时，需先在微信中接收图片或播放语音，再新发一条消息验证。媒体开关、资源就绪及调用计数均不代表图片和语音已完成端到端验收。</p>
+          <hr class="divider">
+          <h3>媒体处理状态</h3><p id="media-runtime" class="statusline" style="margin-top:9px">正在读取媒体处理计数。</p>
+        </div>
+        <div class="card"><div class="card-head"><div><h2>机器人运行链路</h2><p id="client-state" class="muted small">微信客户端状态：待确认</p></div><span class="pill" id="bot-state">待确认</span></div>
+          <p id="runtime-description" class="muted small" aria-live="polite">进程运行与监听就绪分别确认，正在读取状态。</p>
+          <div class="runtime-grid" aria-label="脱敏运行计数">
+            <div class="runtime-box"><h3>01 · 监听</h3><div class="runtime-value" id="runtime-listener-count">—</div><p id="runtime-listener-detail">正在读取监听状态</p></div>
+            <div class="runtime-box"><h3>02 · 消息队列</h3><div class="runtime-value" id="runtime-queue-depth">—</div><p id="runtime-queue-detail">正在读取队列状态</p></div>
+            <div class="runtime-box"><h3>03 · 模型调用</h3><div class="runtime-value" id="runtime-model-count">—</div><p id="runtime-model-detail">成功 / 尝试</p></div>
+            <div class="runtime-box"><h3>04 · 微信发送</h3><div class="runtime-value" id="runtime-send-count">—</div><p id="runtime-send-detail">成功 / 尝试</p></div>
+          </div>
+          <div class="runtime-meta">
+            <div><h3>消息筛选</h3><p id="runtime-filter-detail">尚无运行记录。</p></div>
+            <div><h3>最近记录的错误</h3><p id="runtime-error-detail">尚无运行记录。</p><p id="runtime-error-note" class="runtime-error-note" hidden></p></div>
+          </div>
+          <p id="runtime-updated" class="poll-note" role="status">每3秒读取运行状态，不改变未保存的输入；仅显示计数和错误类型。</p>
+          <div class="actions"><button class="primary" id="start-bot" disabled>启动自动回复</button><button class="danger" id="stop-bot" disabled>停止自动回复</button></div><p id="start-hint" class="statusline" style="margin-top:14px">需要接口验证通过，并至少保存一个会话。</p>
+        </div>
+      </section>
+      <section id="vision" class="panel" aria-label="图片理解">
+        <p class="subtitle intro">图片先由视觉模型转成文字，再交给聊天模型按专属人物设定回复。</p>
+        <div class="vision-flow" aria-label="图片回复链路"><span>微信图片</span>→<span>视觉API</span>→<span>文本描述</span>→<span>专属聊天API</span>→<span>微信回复</span></div>
+        <div class="card">
+          <div class="card-head"><div><h2>视觉模型配置</h2><p class="muted small">可复用聊天接口，或为图片理解单独连接模型。</p></div><span class="pill" id="vision-status">等待配置</span></div>
+          <form id="vision-form"><div class="fields">
+            <div class="field full"><label for="vision-mode">视觉接口来源</label><select id="vision-mode"><option value="chat">复用聊天API</option><option value="independent">独立视觉API</option></select><span class="hint">复用模式需聊天模型支持图片输入。切换模式会保留下方独立配置，保存后才生效。</span></div>
+            <div class="field full"><label for="vision-base-url">独立视觉Base URL</label><input id="vision-base-url" type="url" placeholder="例如 https://模型服务地址/v1" disabled></div>
+            <div class="field full"><label for="vision-model">独立视觉模型名称</label><input id="vision-model" placeholder="填写支持图片输入的模型名称" disabled></div>
+            <div class="field full"><label for="vision-key">独立视觉API Key</label><input id="vision-key" type="password" autocomplete="new-password" placeholder="留空保留已保存的视觉凭证" disabled><span class="hint" id="vision-key-state">视觉凭证状态：待读取</span></div>
+            <div class="field"><label class="checkbox"><input id="vision-no-auth" type="checkbox" disabled>视觉接口不需要API Key</label></div>
+            <div class="field"><label class="checkbox"><input id="vision-clear-key" type="checkbox" disabled>清除已保存的视觉API Key</label></div>
+          </div><div class="actions"><button type="submit" class="primary" id="vision-save" disabled>保存视觉配置</button><button type="button" id="vision-copy-chat" disabled>复制聊天配置为独立视觉配置</button></div></form>
+          <p id="vision-save-hint" class="vision-disabled-note">需先停止机器人，再保存或复制配置。复制操作使用已保存的聊天配置。</p>
+          <hr class="divider"><h3>已保存配置的验证记录</h3><p id="vision-validation" class="statusline" style="margin-top:10px">尚未读取视觉验证记录。</p>
+        </div>
+        <div class="card">
+          <div class="card-head"><div><h2>上传图片，分段验证</h2><p class="muted small">先确认视觉描述，再观察人物回复。</p></div><span class="pill">结果仅显示在本页</span></div>
+          <div class="notice">点击测试将使用已保存的配置真实调用API，可能产生费用。仅测试图片理解会调用视觉接口；完整链路还会调用聊天接口。测试结果不会发送到微信。</div>
+          <form id="vision-test-form">
+            <div class="vision-upload"><div class="fields">
+              <div class="field full"><label for="vision-image">选择图片</label><input type="file" id="vision-image" accept="image/png,image/jpeg,image/webp"><span class="hint vision-file-note" id="vision-file-note">支持PNG、JPEG、WEBP，最大8MiB。选择后仅在本机预览，点击测试才上传。</span></div>
+              <div class="field full"><label for="vision-persona">专属聊天人物</label><select id="vision-persona"><option value="">选择已保存的人物设定</option></select><span class="hint">完整链路使用该人物的已保存设定；仅测试图片理解时可不选。</span></div>
+              <div class="field full"><label for="vision-question">补充问题（可选）</label><textarea id="vision-question" rows="3" placeholder="希望机器人结合图片回应什么？"></textarea></div>
+            </div><div class="vision-preview-box"><span class="muted small" id="vision-preview-placeholder">图片将在这里预览</span><img id="vision-preview" alt="所选测试图片的本地预览" hidden></div></div>
+            <div class="actions"><button class="primary" type="button" id="vision-only-test" disabled>仅测试图片理解</button><button type="button" id="vision-chain-test" disabled>测试完整链路</button><button type="button" id="vision-retry-job" hidden>重新查询当前任务</button></div>
+            <p class="statusline" id="vision-test-status" style="margin-top:13px" role="status">等待选择图片并确认接口配置。</p>
+          </form>
+          <div class="vision-results">
+            <div class="vision-result"><h3>第一段 · 图片理解</h3><p id="vision-stage-vision" class="statusline">尚未执行</p><h3 style="margin-top:14px">图片描述</h3><div id="vision-description" class="vision-output">测试后在这里显示图片描述。</div></div>
+            <div class="vision-result"><h3>第二段 · 人物回复</h3><p id="vision-stage-chat" class="statusline">尚未执行</p><h3 style="margin-top:14px">专属人物回复</h3><div id="vision-reply" class="vision-output">完整链路测试后在这里显示回复。</div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+    'use strict';
+    let currentState = null, selectedPersona = '', toastTimer;
+    let stateEpoch=0, actionDepth=0, fullStateLoading=0, pollBusy=false, runtimeConnected=false, formsLoaded=false;
+    const busyButtons=new Set();
+    let visionConfigDirty=false,visionImageReady=false,visionReaderToken=0,visionActive=false,visionJobId='',visionJobDone=false,visionQueryBusy=false,visionPollTimer=null,visionDeadline=0,visionPostUncertain=false;
+    const $ = id => document.getElementById(id);
+    const titles = {overview:'让对话，有自己的风格。',persona:'把表达习惯，写进设定。',model:'连接你的模型。',wechat:'选择要回应的会话。',vision:'先看懂图片，再用自己的方式回应。'};
+    function notify(message, error=false){const el=$('toast');el.textContent=message;el.classList.toggle('error',error);el.style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.style.display='none',6500);}
+    async function request(path, payload, signal){const response=await fetch(path,{method:payload===undefined?'GET':'POST',headers:payload===undefined?{}:{'Content-Type':'application/json'},body:payload===undefined?undefined:JSON.stringify(payload),cache:'no-store',signal});let data;try{data=await response.json();}catch(_){throw new Error('服务未返回有效JSON，请检查本地服务是否正常。');}if(!response.ok||data.error)throw new Error(data.error||'请求失败（HTTP '+response.status+'）');return data;}
+    function badge(id,text,ok){$(id).textContent=text;$(id).classList.toggle('ok',!!ok);}
+    function switchPage(page){document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('active',x.id===page));document.querySelectorAll('nav button').forEach(x=>{const active=x.dataset.page===page;x.classList.toggle('active',active);x.setAttribute('aria-current',active?'page':'false');});$('page-title').textContent=titles[page];}
+    document.querySelectorAll('nav button').forEach(x=>x.addEventListener('click',()=>switchPage(x.dataset.page)));
+    function choosePersona(name){const p=(currentState?.prompts||[]).find(x=>x.name===name);selectedPersona=name;$('persona-name').value=p?.name||'';$('persona-content').value=p?.content||'';document.querySelectorAll('#persona-list button').forEach(b=>b.classList.toggle('selected',b.textContent===name));}
+    function addListener(value={nickname:'',prompt:''}){const wrap=$('listener-rows');wrap.querySelector('.empty')?.remove();const row=document.createElement('div');row.className='listener';const nickname=document.createElement('input');nickname.className='nickname';nickname.placeholder='微信好友或群聊名称';nickname.setAttribute('aria-label','微信会话名称');nickname.value=value.nickname||'';nickname.required=true;const select=document.createElement('select');select.className='prompt';select.setAttribute('aria-label','人物设定');select.required=true;const empty=new Option('选择人物设定','');select.add(empty);for(const p of currentState?.prompts||[])select.add(new Option(p.name,p.name));select.value=value.prompt||'';if(value.prompt&&!Array.from(select.options).some(x=>x.value===value.prompt)){const missing=new Option(value.prompt+'（设定不存在，请重新选择）','');select.add(missing);select.selectedIndex=select.options.length-1;}const remove=document.createElement('button');remove.type='button';remove.className='danger';remove.textContent='移除';remove.setAttribute('aria-label','移除会话');remove.addEventListener('click',()=>{row.remove();showEmptyListeners();});row.append(nickname,select,remove);wrap.append(row);}
+    function showEmptyListeners(){if(!$('listener-rows').querySelector('.listener')){$('listener-rows').innerHTML='';const el=document.createElement('div');el.className='empty';el.textContent='尚未添加会话。添加后，将在这里设置对应人物。';$('listener-rows').append(el);}}
+    const phaseDescriptions={starting:'启动请求已受理，等待工作进程初始化。',wechat_initializing:'正在连接微信并初始化客户端。',wechat_connected:'微信已连接，尚未确认会话监听就绪。',listener_registering:'正在定位会话并注册监听。',listening:'监听与消费线程均已就绪，等待符合规则的新消息。',queued:'消息已进入队列，等待处理。',generating:'正在调用模型生成回复。',reply_ready:'回复已生成，等待发送。',sending:'正在向微信发送回复。',failed:'运行链路发生错误，请查看下方错误阶段与类型。',stopped:'自动回复未启动或已经停止。',unresponsive:'运行线程没有正常响应，监听就绪状态无法确认。'};
+    const errorStages={contact_resolution:'会话定位',callback:'监听回调',message_handler:'消息处理',consumer:'队列消费',model:'模型调用',send:'微信发送',startup:'启动初始化',poll:'微信轮询',vision:'图片理解',image_extract:'图片提取',audio_extract:'语音提取',asr:'语音转写',media:'媒体处理'};
+    const errorGuidance={AmbiguousContactError:'找到了多个同名会话。请在微信中为目标联系人设置唯一备注，并将上方会话名称改为该备注，保存后重新启动。',ContactNotFoundError:'没有找到配置的会话。请检查微信是否登录、会话名称是否准确，并确认会话可访问。',RuntimeWorkerMissing:'监听或消费线程未正常存活。请停止机器人，排查微信连接和运行环境后重新启动。'};
+    function runtimeCount(value){return Number.isInteger(value)&&value>=0?String(value):'—';}
+    function workerStatus(value){return value===true?'存活':value===false?'未存活':'待确认';}
+    function safeErrorType(value){return typeof value==='string'&&/^[A-Za-z_][A-Za-z0-9_.:]{0,119}$/.test(value)?value:'';}
+    function runtimePresentation(wechat){const runtime=wechat.runtime||{},phase=runtime.phase;
+      if(phase==='failed'||phase==='unresponsive')return {label:'异常',description:phaseDescriptions[phase],error:true};
+      if(!wechat.running)return {label:'未启动',description:phase==='stopped'?phaseDescriptions.stopped:'运行进程未启动，尚未确认监听就绪。'};
+      if(['queued','generating','reply_ready','sending'].includes(phase))return {label:'处理消息',description:phaseDescriptions[phase]};
+      if(runtime.ready===true)return {label:'监听已就绪',description:phaseDescriptions.listening,ready:true};
+      return {label:'正在初始化',description:phaseDescriptions[phase]||'进程已运行，正在等待监听与消费线程就绪。'};
+    }
+    function updateActionButtons(){const api=currentState?.api||{},wechat=currentState?.wechat||{};
+      $('check-model').disabled=busyButtons.has($('check-model'))||!api.ready;
+      $('start-bot').disabled=busyButtons.has($('start-bot'))||!runtimeConnected||!(api.verified&&wechat.listeners?.length&&!wechat.running);
+      $('stop-bot').disabled=busyButtons.has($('stop-bot'))||!runtimeConnected||!wechat.running;
+      $('media-save').disabled=busyButtons.has($('media-save'))||!runtimeConnected||!formsLoaded||!currentState?.media||!!wechat.running;
+      $('media-save-hint').textContent=!runtimeConnected?'运行状态待确认，暂不可保存。':!currentState?.media?'尚未读取到媒体配置，暂不可保存。':wechat.running?'机器人运行中，请先停止后保存；当前勾选会保留。':'仅保存媒体开关，不会自动启动机器人或测试媒体。';
+      updateVisionButtons();
+    }
+    function updateVisionMode(){const reuse=$('vision-mode').value==='chat';for(const id of ['vision-base-url','vision-model','vision-key','vision-clear-key','vision-no-auth'])$(id).disabled=reuse;updateVisionButtons();}
+    function updateVisionButtons(){
+      const v=currentState?.vision||{},serverTesting=!!v.testing,busy=visionActive||visionPostUncertain||serverTesting;
+      const canConfigure=runtimeConnected&&formsLoaded&&!!currentState?.vision&&!currentState.wechat?.running&&!busy;
+      $('vision-save').disabled=busyButtons.has($('vision-save'))||!canConfigure;
+      $('vision-copy-chat').disabled=busyButtons.has($('vision-copy-chat'))||!canConfigure;
+      $('vision-save-hint').textContent=!runtimeConnected?'服务状态待确认，暂不可保存。':busy?'存在进行中或状态待确认的测试，先查询该任务，不会自动重复调用API。':currentState.wechat?.running?'机器人运行中，停止后才能保存或复制视觉配置。':visionConfigDirty?'有未保存的视觉修改；测试始终使用已保存配置。':'停止机器人后可保存；复制操作使用已保存的聊天配置，不自动发起测试。';
+      const canTest=runtimeConnected&&!!v.ready&&visionImageReady&&!busy;
+      $('vision-only-test').disabled=!canTest;
+      const persona=$('vision-persona').value,personaExists=(currentState?.prompts||[]).some(p=>p.name===persona);
+      $('vision-chain-test').disabled=!canTest||!currentState?.api?.ready||!personaExists;
+      $('vision-image').disabled=visionActive;$('vision-persona').disabled=visionActive;$('vision-question').disabled=visionActive;
+      $('vision-retry-job').disabled=visionQueryBusy;
+    }
+    function visionStageText(stage){
+      if(!stage)return '尚未执行';
+      const names={pending:'等待执行',running:'执行中',passed:'通过',failed:'失败',skipped:'已跳过'};
+      const elapsed=typeof stage.elapsed_ms==='number'&&stage.elapsed_ms>=0?(stage.elapsed_ms/1000).toFixed(2)+' 秒':'未记录';
+      let result=(names[stage.status]||'状态待确认')+' · 模型：'+(stage.model||'未记录')+'\n调用 '+runtimeCount(stage.call_count)+' 次 · 耗时 '+elapsed;
+      const type=safeErrorType(stage.error_type);if(type)result+='\n错误类型：'+type;
+      if(typeof stage.reason==='string'&&stage.reason)result+='\n'+stage.reason;
+      return result;
+    }
+    function renderVisionStatus(state){
+      // Saved metadata only: never edit the visual form, upload, or result panes here.
+      const v=state.vision;
+      if(!v){badge('vision-status','等待服务支持',false);$('vision-validation').textContent='尚未读取到视觉配置。';return;}
+      badge('vision-status',v.testing?'测试进行中':v.chain_verified?'完整链路已验证':v.verified?'视觉已验证':v.ready?'待真实验证':'待配置',v.chain_verified||v.verified);
+      const validation=v.validation||{};
+      $('vision-key-state').textContent=(v.saved_independent?.key_configured?'独立视觉API Key已保存（不回显）':'尚未保存独立视觉API Key')+(v.mode==='chat'?'；当前复用聊天API，独立配置仍保留。':'');
+      $('vision-validation').textContent='已保存模式：'+(v.mode==='independent'?'独立视觉API':'复用聊天API')+' · 当前有效模型：'+(v.model||'未配置')+' · '+(v.ready?'配置已具备调用条件':'配置待完善')+(v.reason?'\n'+v.reason:'')+'\n累计视觉调用 '+runtimeCount(validation.vision_total_calls)+' 次 · 累计聊天调用 '+runtimeCount(validation.chat_total_calls)+' 次\n最近图片理解：'+visionStageText(validation.vision)+'\n最近人物回复：'+visionStageText(validation.chat);
+    }
+    function renderVisionForm(state){
+      const v=state.vision||{},saved=v.saved_independent||{};
+      if(!visionConfigDirty){$('vision-mode').value=v.mode==='independent'?'independent':'chat';$('vision-base-url').value=saved.base_url||'';$('vision-model').value=saved.model||'';$('vision-key').value='';$('vision-clear-key').checked=false;$('vision-no-auth').checked=!!saved.no_auth;}
+      const selected=$('vision-persona').value,select=$('vision-persona');
+      select.replaceChildren(new Option('选择已保存的人物设定',''));
+      for(const p of state.prompts||[])select.add(new Option(p.name,p.name));
+      if(selected){if(!Array.from(select.options).some(o=>o.value===selected)){const option=new Option(selected+'（人物已不存在，请重新选择）',selected);option.disabled=true;select.add(option);}select.value=selected;}
+      updateVisionMode();
+    }
+    function visionQueryInterrupted(message){
+      clearTimeout(visionPollTimer);$('vision-test-status').textContent=message+' 查询不会重新上传图片或再次调用模型。';$('vision-retry-job').hidden=false;$('vision-retry-job').textContent=visionJobId?'重新查询当前任务':'确认服务状态';updateVisionButtons();
+    }
+    function renderVisionJob(job){
+      $('vision-stage-vision').textContent=visionStageText(job.vision);$('vision-stage-chat').textContent=visionStageText(job.chat);
+      if(typeof job.description==='string')$('vision-description').textContent=job.description||'尚无图片描述。';
+      if(typeof job.reply==='string')$('vision-reply').textContent=job.reply||'尚无人物回复。';
+      if(job.status==='running'){$('vision-test-status').textContent=(job.stage==='chat'?'正在执行第二段：人物回复。':'正在执行第一段：图片理解。')+' 查询任务状态不会重复计费。';}
+      else if(job.status==='passed'||job.status==='failed'){
+        visionActive=false;visionJobDone=true;visionPostUncertain=false;$('vision-retry-job').hidden=true;
+        $('vision-test-status').textContent=job.status==='passed'?'本次测试通过，结果仅显示在页面，未发送到微信。':'本次测试失败，请查看对应阶段；图片、人物选择和补充问题均保留。重新点击测试将创建新的API调用。';
+        updateVisionButtons();refreshRuntime();
+      }else throw new Error('任务返回了未知状态，请重新查询同一任务。');
+    }
+    async function pollVisionJob(){
+      if(!visionJobId||visionJobDone||visionQueryBusy)return;
+      if(Date.now()>visionDeadline){visionQueryInterrupted('等待已超过180秒，任务可能仍在服务端运行，可继续查询同一任务。');return;}
+      visionQueryBusy=true;updateVisionButtons();const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
+      try{const job=await request('/local/vision/test/'+encodeURIComponent(visionJobId),undefined,controller.signal);renderVisionJob(job);if(!visionJobDone)visionPollTimer=setTimeout(pollVisionJob,1000);}
+      catch(_){visionQueryInterrupted('暂时无法查询任务状态，已保留当前任务。请点击重新查询，不要重复发起测试。');}
+      finally{clearTimeout(timer);visionQueryBusy=false;updateVisionButtons();}
+    }
+    async function startVisionTest(scope){
+      const button=scope==='chain'?$('vision-chain-test'):$('vision-only-test');
+      if(button.disabled||visionActive||visionPostUncertain)return;
+      const file=$('vision-image').files[0];if(!file||!visionImageReady){notify('请选择有效的PNG、JPEG或WEBP图片，大小不超过8MiB。',true);return;}
+      visionActive=true;visionJobDone=false;visionJobId='';visionPostUncertain=false;clearTimeout(visionPollTimer);$('vision-retry-job').hidden=true;
+      $('vision-test-status').textContent='正在提交测试任务；使用已保存的配置，请勿重复点击。';
+      $('vision-stage-vision').textContent='等待提交';$('vision-stage-chat').textContent=scope==='chain'?'等待图片理解完成':'本次不测试人物回复';$('vision-description').textContent='等待本次图片描述。';$('vision-reply').textContent=scope==='chain'?'等待本次人物回复。':'本次仅测试图片理解。';updateVisionButtons();
+      const form=new FormData();form.append('image',file);form.append('persona',$('vision-persona').value);form.append('question',$('vision-question').value);form.append('scope',scope);
+      const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),25000);let serverRejected=false;
+      try{const response=await fetch('/local/vision/test',{method:'POST',body:form,signal:controller.signal,cache:'no-store'});const data=await response.json();if(!response.ok||data.error){serverRejected=true;throw new Error(data.error||'服务拒绝了测试请求。');}if(!data.job_id)throw new Error('服务未返回任务编号。');visionJobId=String(data.job_id);visionDeadline=Date.now()+180000;$('vision-test-status').textContent='测试任务已创建，正在查询第一段结果。';pollVisionJob();}
+      catch(error){visionActive=false;visionPostUncertain=!serverRejected;notify(error.message||'提交结果未能确认。',true);if(serverRejected){$('vision-test-status').textContent='测试请求未被接受：'+error.message+' 输入已保留，未自动重试。';}else{visionQueryInterrupted('未能确认任务是否创建。请先确认服务状态，避免重复调用API。');}updateVisionButtons();}
+      finally{clearTimeout(timer);}
+    }
+    function renderMediaStatus(state){
+      // Runtime refresh updates descriptions only; checkbox values belong to the full form renderer.
+      const media=state.media,rt=state.wechat?.runtime||{},c=rt.counters||{};
+      if(!media){$('media-readiness').textContent='尚未读取到媒体能力配置，请刷新完整配置并检查本地服务版本。';}
+      else{
+        const resource=media.asr_ready===true?'语音转写资源已就绪':media.asr_ready===false?'语音转写资源尚未就绪':'语音转写资源状态待确认';
+        $('media-readiness').textContent='已保存：图片理解'+(media.image_enabled?'开启':'关闭')+' · 语音转写'+(media.voice_enabled?'开启':'关闭')+'。'+resource+'（small / CPU / int8）；资源就绪不代表已完成微信收取与回复验证。';
+      }
+      const phases={idle:'空闲',waiting:'等待媒体',queued:'等待处理',extracting:'提取媒体',image_extracting:'提取图片',audio_extracting:'提取语音',vision:'图片理解',image:'图片理解',asr:'语音转写',transcribing:'语音转写',processing:'处理媒体',ready:'等待处理',failed:'处理异常',stopped:'已停止'};
+      const phase=typeof rt.media_phase==='string'&&Object.prototype.hasOwnProperty.call(phases,rt.media_phase)?phases[rt.media_phase]:'状态待确认';
+      $('media-runtime').textContent='媒体阶段：'+phase+' · 队列待处理 '+runtimeCount(rt.media_queue_depth)+'\n图片理解：成功 / 尝试 '+runtimeCount(c.vision_successes)+' / '+runtimeCount(c.vision_attempts)+' · 错误 '+runtimeCount(c.vision_errors)+'\n语音转写：成功 / 尝试 '+runtimeCount(c.asr_successes)+' / '+runtimeCount(c.asr_attempts)+' · 错误 '+runtimeCount(c.asr_errors)+'\n取图片失败 '+runtimeCount(c.image_extract_errors)+' · 取语音失败 '+runtimeCount(c.audio_extract_errors)+' · 媒体队列满 '+runtimeCount(c.media_queue_full);
+    }
+    function renderRuntime(state){
+      // This path never changes form values, persona buttons, or listener rows.
+      currentState=state;runtimeConnected=true;
+      const api=state.api||{},wechat=state.wechat||{},runtime=wechat.runtime||{},c=runtime.counters||{},listeners=wechat.listeners||[],prompts=state.prompts||[],view=runtimePresentation(wechat);
+      $('bot-summary').textContent=view.label;$('listeners-summary').textContent='已保存 '+listeners.length+' 个会话 · '+(wechat.running?'进程运行中':'进程未运行');
+      $('phase-note').textContent=wechat.running?view.description:api.verified?'模型接口已验证，等待按需启动':api.ready?'模型接口已配置，等待真实验证':'等待接入模型API';
+      $('persona-count').textContent=prompts.length+' 个人物';badge('persona-progress',prompts.length?'已保存':'待配置',prompts.length);badge('api-progress',api.verified?'已验证':api.ready?'待验证':'待接入',api.verified);badge('wechat-progress',listeners.length?'已保存':'待配置',listeners.length);
+      badge('bot-state',view.label,view.ready);$('bot-state').classList.toggle('error',!!view.error);
+      const header=$('header-status');header.classList.toggle('ok',!!view.ready);header.classList.toggle('error',!!view.error);header.querySelector('span:last-child').textContent=wechat.running||view.error?view.label:'应用配置阶段';
+      $('client-state').textContent='微信客户端：'+(wechat.client_detected===true?'已检测到':wechat.client_detected===false?'未检测到':'状态未知');
+      $('runtime-description').textContent=view.description+' 进程存活不代表监听已就绪。';
+      $('runtime-listener-count').textContent=runtimeCount(runtime.listener_count)+' 个监听';
+      $('runtime-listener-detail').textContent='监听线程：'+workerStatus(runtime.listener_alive)+' · 收到 '+runtimeCount(c.received)+' · 接受 '+runtimeCount(c.accepted)+' · 回调异常 '+runtimeCount(c.callback_errors)+' · 轮询异常 '+runtimeCount(c.poll_errors);
+      $('runtime-queue-depth').textContent=runtimeCount(runtime.queue_depth)+' 条待处理';
+      $('runtime-queue-detail').textContent='消费线程：'+workerStatus(runtime.consumer_alive)+' · 累计入队 '+runtimeCount(c.queued)+' · 消费异常 '+runtimeCount(c.consumer_errors);
+      $('runtime-model-count').textContent=runtimeCount(c.model_successes)+' / '+runtimeCount(c.model_attempts);
+      $('runtime-model-detail').textContent='成功 / 尝试 · 错误 '+runtimeCount(c.model_errors);
+      $('runtime-send-count').textContent=runtimeCount(c.send_successes)+' / '+runtimeCount(c.send_attempts);
+      $('runtime-send-detail').textContent='成功 / 尝试 · 错误 '+runtimeCount(c.send_errors);
+      const filterNames={self:'自身消息',self_message:'自身消息',other:'非目标消息',other_message:'非目标消息',old:'历史消息',old_message:'历史消息',history:'历史消息',non_text:'非文本消息',accepted:'已接受',none:'无'};
+      $('runtime-filter-detail').textContent='忽略自身 '+runtimeCount(c.ignored_self)+' · 其他 '+runtimeCount(c.ignored_other)+' · 历史 '+runtimeCount(c.ignored_old)+(runtime.last_filter?' · 最近筛选：'+(filterNames[runtime.last_filter]||'其他筛选规则'):'');
+      const errorType=safeErrorType(runtime.last_error_type),stage=errorStages[runtime.last_error_stage];
+      $('runtime-error-detail').textContent=errorType?(stage||'未知阶段')+' · '+errorType:'暂无可显示的错误类型记录。';
+      const candidateCount=runtime.candidate_count;
+      let guidance=errorGuidance[errorType]||'';
+      if(errorType==='AmbiguousContactError'&&Number.isInteger(candidateCount)&&candidateCount>1)guidance='发现 '+candidateCount+' 个候选会话。'+guidance;
+      $('runtime-error-note').textContent=guidance;$('runtime-error-note').hidden=!guidance;
+      const rawTime=runtime.updated_at,parsedTime=typeof rawTime==='number'?new Date(rawTime<1e12?rawTime*1000:rawTime):new Date(typeof rawTime==='string'?rawTime:'');
+      $('runtime-updated').textContent='每3秒自动读取 · '+(Number.isNaN(parsedTime.getTime())?'尚无运行更新时间':'运行状态更新于 '+parsedTime.toLocaleString('zh-CN',{hour12:false}))+' · 仅显示脱敏计数和错误类型，不改变未保存输入。';
+      $('start-hint').textContent=wechat.running?(view.ready?'监听已就绪；可在此停止自动回复。':view.error?'运行链路异常；进程仍在，可先停止再排查。':'进程正在运行，监听状态见上方；可点击停止。'):api.verified&&listeners.length?'接口已验证，会话已保存；启动前请再次核对。':'需要接口验证通过，并至少保存一个会话。';
+      renderMediaStatus(state);
+      renderVisionStatus(state);
+      updateActionButtons();
+    }
+    function runtimeUnavailable(){runtimeConnected=false;$('bot-summary').textContent='状态未知';badge('bot-state','状态连接中断',false);$('bot-state').classList.add('error');$('runtime-description').textContent='无法读取最新运行状态；下方保留最后一次读数，不代表当前仍在运行或监听就绪。';$('runtime-updated').textContent='状态读取失败，将自动重试。未保存输入保持不变，也可手动刷新。';const header=$('header-status');header.classList.remove('ok');header.classList.add('error');header.querySelector('span:last-child').textContent='状态连接中断';updateActionButtons();}
+    function render(state){
+      // Full form reload is reserved for initial load, explicit saves, and manual refresh.
+      currentState=state;
+      const api=state.api||{},prompts=state.prompts||[],listeners=state.wechat?.listeners||[],validation=state.validation||{};
+      $('loading-note').style.display='none';
+      badge('model-status',api.verified?'验证通过':api.ready?'已配置 · 未验证':'等待接入',api.verified);
+      $('versions').textContent='Python '+(state.python_version||'未知')+' · 上游版本 '+(state.upstream_version||'未知');
+      $('base-url').value=api.base_url||'';$('model-name').value=api.model||'';
+      $('api-key').value='';$('clear-key').checked=false;$('no-auth').checked=!!api.no_auth;
+      $('temperature').value=api.temperature??0.7;$('max-tokens').value=api.max_tokens??512;$('history-turns').value=api.history_turns??5;
+      $('image-enabled').checked=!!state.media?.image_enabled;$('voice-enabled').checked=!!state.media?.voice_enabled;
+      $('key-state').textContent=api.key_configured?'已保存API Key（不回显）':'尚未保存API Key';
+      $('validation-detail').textContent='验证状态：'+(validation.status||'未执行')+'\n'+(validation.reason||'尚无真实模型验证结果。')+'\n模型：'+(validation.model||'未记录')+' · 调用次数：'+(validation.call_count??0);
+      $('persona-list').replaceChildren();
+      for(const p of prompts){const b=document.createElement('button');b.type='button';b.textContent=p.name;b.addEventListener('click',()=>choosePersona(p.name));$('persona-list').append(b);}
+      choosePersona(prompts.some(p=>p.name===selectedPersona)?selectedPersona:(prompts[0]?.name||''));
+      $('listener-rows').replaceChildren();listeners.forEach(addListener);showEmptyListeners();
+      renderVisionForm(state);
+    }
+    async function loadState(){++stateEpoch;++fullStateLoading;try{const state=await request('/local/state');render(state);formsLoaded=true;renderRuntime(state);}catch(error){currentState=null;$('loading-note').style.display='block';$('loading-note').textContent='配置读取失败：'+error.message;runtimeUnavailable();throw error;}finally{--fullStateLoading;}}
+    async function action(button,fn){++stateEpoch;++actionDepth;busyButtons.add(button);button.disabled=true;try{await fn();}catch(error){notify(error.message,true);}finally{--actionDepth;busyButtons.delete(button);button.disabled=false;updateActionButtons();}}
+    async function refreshRuntime(){
+      if(pollBusy||actionDepth||fullStateLoading)return;
+      pollBusy=true;const epoch=stateEpoch,controller=new AbortController(),timer=setTimeout(()=>controller.abort(),8000);
+      try{const state=await request('/local/state',undefined,controller.signal);if(epoch!==stateEpoch||actionDepth||fullStateLoading)return;renderRuntime(state);if(!formsLoaded){$('loading-note').style.display='block';$('loading-note').textContent='运行状态已读取。请点击“刷新状态”加载完整配置。';}}
+      catch(_){if(epoch===stateEpoch&&!actionDepth&&!fullStateLoading)runtimeUnavailable();}
+      finally{clearTimeout(timer);pollBusy=false;}
+    }
+    $('refresh-button').addEventListener('click',event=>action(event.currentTarget,loadState));
+    $('new-persona').addEventListener('click',()=>{choosePersona('');$('persona-name').focus();});
+    $('persona-form').addEventListener('submit',event=>{event.preventDefault();const name=$('persona-name').value.trim();if(!name){notify('请填写人物设定名称。',true);return;}action(event.submitter,async()=>{const result=await request('/local/persona',{name,content:$('persona-content').value});selectedPersona=name;await loadState();notify(result.message||'人物设定已保存。');});});
+    $('model-form').addEventListener('submit',event=>{event.preventDefault();action(event.submitter,async()=>{const payload={base_url:$('base-url').value.trim(),model:$('model-name').value.trim(),api_key:$('api-key').value,clear_api_key:$('clear-key').checked,no_auth:$('no-auth').checked,temperature:Number($('temperature').value),max_tokens:Number($('max-tokens').value),history_turns:Number($('history-turns').value)};const result=await request('/local/settings',payload);$('api-key').value='';await loadState();notify(result.message||'接口配置已保存。');});});
+    $('add-listener').addEventListener('click',()=>addListener());
+    $('media-form').addEventListener('submit',event=>{event.preventDefault();if(!runtimeConnected||!currentState||currentState.wechat?.running){notify('请先停止机器人并确认运行状态，再保存媒体配置。',true);return;}action(event.submitter,async()=>{const result=await request('/local/media',{image_enabled:$('image-enabled').checked,voice_enabled:$('voice-enabled').checked});await loadState();notify(result.message||'媒体配置已保存。');});});
+    $('listeners-form').addEventListener('submit',event=>{event.preventDefault();const listeners=Array.from($('listener-rows').querySelectorAll('.listener')).map(row=>({nickname:row.querySelector('.nickname').value.trim(),prompt:row.querySelector('.prompt').value}));if(listeners.some(x=>!x.nickname||!x.prompt)){notify('请为每一行填写会话名称并选择人物设定。',true);return;}action(event.submitter,async()=>{const result=await request('/local/listeners',{listeners});await loadState();notify(result.message||'会话配置已保存。');});});
+    $('check-model').addEventListener('click',event=>{if(!currentState?.api?.ready)return;if(!confirm('即将使用已保存的接口配置真实调用模型，可能产生服务费用。是否继续？'))return;action(event.currentTarget,async()=>{try{const result=await request('/local/check_model',{});notify(result.message||'模型验证请求已完成。');}finally{await loadState();}});});
+    $('start-bot').addEventListener('click',event=>{if(!(currentState?.api?.verified&&currentState.wechat?.listeners?.length))return;if(!confirm('启动后，机器人会对已保存的微信会话开始自动回复。请确认会话名称、人物设定和模型接口均正确。现在启动吗？'))return;action(event.currentTarget,async()=>{const result=await request('/start_bot',{});await loadState();notify(result.message||'启动请求已提交，请查看运行状态。');});});
+    $('stop-bot').addEventListener('click',event=>action(event.currentTarget,async()=>{const result=await request('/stop_bot',{});await loadState();notify(result.message||'停止请求已提交。');}));
+    $('vision-form').addEventListener('input',()=>{visionConfigDirty=true;updateVisionButtons();});
+    $('vision-form').addEventListener('change',()=>{visionConfigDirty=true;updateVisionMode();});
+    $('vision-form').addEventListener('submit',event=>{event.preventDefault();if($('vision-save').disabled)return;action($('vision-save'),async()=>{const result=await request('/local/vision/settings',{mode:$('vision-mode').value,base_url:$('vision-base-url').value.trim(),model:$('vision-model').value.trim(),api_key:$('vision-key').value,clear_api_key:$('vision-clear-key').checked,no_auth:$('vision-no-auth').checked});visionConfigDirty=false;$('vision-key').value='';await loadState();notify(result.message||'视觉配置已保存。');});});
+    $('vision-copy-chat').addEventListener('click',()=>{if($('vision-copy-chat').disabled)return;action($('vision-copy-chat'),async()=>{const result=await request('/local/vision/settings',{copy_from_chat:true});visionConfigDirty=false;$('vision-key').value='';await loadState();notify(result.message||'已复制聊天配置为独立视觉配置。');});});
+    $('vision-test-form').addEventListener('submit',event=>event.preventDefault());
+    $('vision-persona').addEventListener('change',updateVisionButtons);
+    $('vision-only-test').addEventListener('click',()=>startVisionTest('vision'));
+    $('vision-chain-test').addEventListener('click',()=>startVisionTest('chain'));
+    $('vision-image').addEventListener('change',()=>{
+      const token=++visionReaderToken,file=$('vision-image').files[0],preview=$('vision-preview');visionImageReady=false;preview.hidden=true;preview.removeAttribute('src');$('vision-preview-placeholder').hidden=false;updateVisionButtons();
+      if(!file){$('vision-file-note').textContent='支持PNG、JPEG、WEBP，最大8MiB。';return;}
+      if(!['image/png','image/jpeg','image/webp'].includes(file.type)||file.size>8*1024*1024||file.size===0){$('vision-file-note').textContent='请选择非空PNG、JPEG或WEBP图片，大小不超过8MiB。';notify('图片格式或大小不符合要求，尚未上传。',true);return;}
+      $('vision-file-note').textContent='正在准备本地预览，尚未上传。';const reader=new FileReader();
+      reader.onerror=()=>{if(token!==visionReaderToken)return;$('vision-file-note').textContent='本机无法读取图片，请重新选择。';};
+      reader.onload=()=>{if(token!==visionReaderToken)return;preview.onload=()=>{if(token!==visionReaderToken)return;visionImageReady=true;preview.hidden=false;$('vision-preview-placeholder').hidden=true;$('vision-file-note').textContent='已准备本地预览 · '+(file.size/1024/1024).toFixed(2)+' MiB · 点击测试才上传。';updateVisionButtons();};preview.onerror=()=>{if(token!==visionReaderToken)return;visionImageReady=false;preview.hidden=true;$('vision-file-note').textContent='图片无法解码，请选择其他有效图片。';updateVisionButtons();};preview.src=String(reader.result);};reader.readAsDataURL(file);
+    });
+    $('vision-retry-job').addEventListener('click',async()=>{
+      if(visionQueryBusy)return;
+      if(visionJobId&&!visionJobDone){visionDeadline=Date.now()+180000;$('vision-retry-job').hidden=true;pollVisionJob();return;}
+      visionQueryBusy=true;updateVisionButtons();
+      try{const state=await request('/local/state');renderRuntime(state);if(state.vision?.testing){$('vision-test-status').textContent='服务仍有测试进行中，暂不重发。请稍后再次确认状态。';}else{visionPostUncertain=false;$('vision-retry-job').hidden=true;$('vision-test-status').textContent='服务当前没有进行中的测试。此前提交结果无法恢复，本次未重新调用API；再次点击测试会创建新的付费调用。';}}
+      catch(_){$('vision-test-status').textContent='服务状态仍无法确认，输入已保留，请稍后再次查询。';}
+      finally{visionQueryBusy=false;updateVisionButtons();}
+    });
+    loadState().catch(error=>notify(error.message,true));
+    // Poll only safe runtime displays. Never call full form rendering here.
+    setInterval(refreshRuntime,3000);
+  </script>
+</body>
+</html>
